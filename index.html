@@ -6,20 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zakim Bridge</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
         #mySvg use:not(#excludeHover) {
             transition: opacity 0.5s, transform 0.5s;
             transform-origin: center;
         }
 
         #mySvg use:not(#excludeHover):hover {
-            opacity: 1;
-            transform: scale(1.04);
-            /* Slightly increase size */
-        }
-
-        #mySvg use:not(#excludeHover):not(:hover) {
-            opacity: 0.5;
-            /* Dim other elements */
+            transform: scale(1.08);
         }
     </style>
 
@@ -100,7 +99,7 @@
         document.querySelectorAll('#mySvg use').forEach(function (elem) {
             elem.addEventListener('mouseover', function () {
                 document.querySelectorAll('#mySvg use').forEach(function (el) {
-                    if (el !== elem) el.style.opacity = 0.2;
+                    if (el !== elem) el.style.opacity = 0.5;
                 });
             });
 
